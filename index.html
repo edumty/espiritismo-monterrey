@@ -87,6 +87,31 @@
     <a href="#monterrey">Espiritismo en Monterrey</a>
   </nav>
 
+<section id="escuelas">
+  <h2>Escuelas Espirituales</h2>
+  <button onclick="mostrarEscuelas()">Ver escuelas espirituales</button>
+  <div id="contenidoEscuelas" style="display:none; margin-top:15px;">
+    <p>En Monterrey existen diversas agrupaciones dedicadas al estudio del espiritismo, la filosofía kardecista y el desarrollo espiritual. Algunas de ellas ofrecen charlas, grupos de estudio y actividades abiertas al público.</p>
+    <ul>
+      <li>Centro de Estudios Espíritas Monterrey</li>
+      <li>Grupo Luz y Progreso</li>
+      <li>Escuela Kardecista Nuevo León</li>
+    </ul>
+  </div>
+</section>
+
+<script>
+  function mostrarEscuelas() {
+    const seccion = document.getElementById("contenidoEscuelas");
+    if (seccion.style.display === "none") {
+      seccion.style.display = "block";
+    } else {
+      seccion.style.display = "none";
+    }
+  }
+</script>
+
+  
   <div class="contenido">
     <p>Bienvenido a esta página dedicada al estudio del espiritismo codificado por Allan Kardec, con enfoque en Monterrey, Nuevo León.</p>
     <img src="allan-kardec.jpg" alt="Allan Kardec">
@@ -137,6 +162,7 @@
   
 </body>
 </html>
+
 
 
 
