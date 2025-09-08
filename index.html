@@ -2,171 +2,125 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Espiritismo en Monterrey | Allan Kardec y el estudio espiritual</title>
-  <meta name="description" content="Descubre el espiritismo en Monterrey, Nuevo León, basado en las enseñanzas de Allan Kardec. Información sobre centros espiritistas, obras y principios espirituales.">
-  <meta name="keywords" content="espiritismo Monterrey, espiritismo Nuevo León, Allan Kardec, centros espiritistas, espiritismo México">
-  <meta name="author" content="Estudio Kardecista Monterrey">
+  <title>Espiritismo en Monterrey | Allan Kardec</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      background-color: #e0f7fa;
-      color: #000;
       font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 20px;
+      background-color: #e0f7fa;
       margin: 0;
-    }
-
-    h1, h2 {
-      color: #01579b;
+      padding: 0;
+      color: #333;
     }
 
     nav {
-      background-color: #b2ebf2;
-      padding: 10px;
-      margin-bottom: 20px;
-      border-radius: 8px;
+      background-color: #0288d1;
+      padding: 15px;
+      text-align: center;
     }
 
     nav a {
-      color: #0288d1;
-      text-decoration: none;
+      color: white;
       margin: 0 15px;
+      text-decoration: none;
       font-weight: bold;
-      transition: color 0.3s ease;
+      cursor: pointer;
     }
 
     nav a:hover {
-      color: #01579b;
+      text-decoration: underline;
     }
 
-    img {
-      max-width: 300px;
-      border-radius: 10px;
-      margin-top: 20px;
-    }
-
-    .contenido {
-      background-color: #ffffff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    .seccion {
+      display: none;
+      padding: 30px;
       max-width: 800px;
       margin: auto;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
     }
 
-    section {
-      margin-top: 40px;
-      text-align: left;
-    }
-
-    ul {
-      list-style-type: square;
-      padding-left: 20px;
-      text-align: left;
+    .activo {
+      display: block;
     }
 
     footer {
       margin-top: 50px;
       padding: 15px;
       background-color: #b2ebf2;
-      border-top: 1px solid #81d4fa;
-      border-radius: 8px;
+      text-align: center;
       font-size: 0.9em;
     }
   </style>
-  <meta name="google-site-verification" content="rjNt6EEl83z66jEdX9hoyr7R79K745QlZmnEtB--fVE" />
 </head>
 <body>
-  <h1>Espiritismo en Monterrey, Nuevo León</h1>
 
   <nav>
-    <a href="#biografia">Biografía</a>
-    <a href="#obras">Obras</a>
-    <a href="#principios">Principios</a>
-    <a href="#monterrey">Espiritismo en Monterrey</a>
+    <a onclick="mostrarSeccion('inicio')">Inicio</a>
+    <a onclick="mostrarSeccion('biografia')">Biografía</a>
+    <a onclick="mostrarSeccion('obras')">Obras</a>
+    <a onclick="mostrarSeccion('principios')">Principios</a>
+    <a onclick="mostrarSeccion('monterrey')">Espiritismo en Monterrey</a>
+    <a onclick="mostrarSeccion('escuelas')">Escuelas Espirituales</a>
   </nav>
 
-<section id="escuelas">
-  <h2>Escuelas Espirituales</h2>
-  <button onclick="mostrarEscuelas()">Ver escuelas espirituales</button>
-  <div id="contenidoEscuelas" style="display:none; margin-top:15px;">
-    <p>En Monterrey existen diversas agrupaciones dedicadas al estudio del espiritismo, la filosofía kardecista y el desarrollo espiritual. Algunas de ellas ofrecen charlas, grupos de estudio y actividades abiertas al público.</p>
+  <div id="inicio" class="seccion activo">
+    <h1>Espiritismo en Monterrey</h1>
+    <p>Bienvenido a esta página dedicada al estudio del espiritismo codificado por Allan Kardec, con enfoque en Monterrey, Nuevo León.</p>
+    <img src="allan_kardec7.jpg" alt="Allan Kardec" style="max-width:300px; border-radius:10px;">
+    <p>Exploraremos sus obras, pensamientos y el legado que dejó en el mundo espiritual, especialmente en México.</p>
+  </div>
+
+  <div id="biografia" class="seccion">
+    <h2>Biografía de Allan Kardec</h2>
+    <p>Allan Kardec, nacido como Hippolyte Léon Denizard Rivail, fue un educador francés que se dedicó al estudio de los fenómenos espirituales. En el siglo XIX, codificó el espiritismo a través de una serie de obras fundamentales que aún hoy son referencia en el estudio espiritual.</p>
+  </div>
+
+  <div id="obras" class="seccion">
+    <h2>Obras principales</h2>
     <ul>
-      <li>Escuela de Estudios Psiquicos, Fuerza, Luz y Verdad</li>
-      
+      <li>El Libro de los Espíritus</li>
+      <li>El Libro de los Médiums</li>
+      <li>El Evangelio según el Espiritismo</li>
+      <li>El Cielo y el Infierno</li>
+      <li>La Génesis</li>
     </ul>
   </div>
-</section>
 
+  <div id="principios" class="seccion">
+    <h2>Principios del Espiritismo</h2>
+    <p>El espiritismo enseña que los espíritus son seres inteligentes que sobreviven a la muerte física. Promueve la comunicación con el mundo espiritual, la reencarnación, y la evolución moral como camino hacia la perfección.</p>
+  </div>
 
+  <div id="monterrey" class="seccion">
+    <h2>Espiritismo en Monterrey</h2>
+    <p>En Monterrey, el espiritismo ha encontrado seguidores comprometidos con el estudio de las enseñanzas de Allan Kardec. Existen grupos de estudio, centros espiritistas y actividades dedicadas al desarrollo espiritual y moral.</p>
+    <p>Una de las escuelas más reconocidas es la <strong>Escuela de Estudios Psíquicos Fuerza, Luz y Verdad</strong>, ubicada en la Colonia Arturo B. de la Garza, calle Capitán Diego Rodríguez.</p>
+  </div>
 
-  
-  <div class="contenido">
-    <p>Bienvenido a esta página dedicada al estudio del espiritismo codificado por Allan Kardec, con enfoque en Monterrey, Nuevo León.</p>
-
-    <img src="allan_kardec7.jpg" alt="Allan Kardec">
-
-    <p>Exploraremos sus obras, pensamientos y el legado que dejó en el mundo espiritual, especialmente en México.</p>
-
-    <section id="biografia">
-      <h2>Biografía de Allan Kardec</h2>
-      <p>Allan Kardec, nacido como Hippolyte Léon Denizard Rivail, fue un educador francés que se dedicó al estudio de los fenómenos espirituales. En el siglo XIX, codificó el espiritismo a través de una serie de obras fundamentales que aún hoy son referencia en el estudio espiritual.</p>
-    </section>
-
-    <section id="obras">
-      <h2>Obras principales</h2>
-      <ul>
-        <li>El Libro de los Espíritus</li>
-        <li>El Libro de los Médiums</li>
-        <li>El Evangelio según el Espiritismo</li>
-        <li>El Cielo y el Infierno</li>
-        <li>La Génesis</li>
-      </ul>
-    </section>
-
-    <section id="principios">
-      <h2>Principios del Espiritismo</h2>
-      <p>El espiritismo enseña que los espíritus son seres inteligentes que sobreviven a la muerte física. Promueve la comunicación con el mundo espiritual, la reencarnación, y la evolución moral como camino hacia la perfección.</p>
-    </section>
-
-    <section id="monterrey">
-      <h2>Espiritismo en Monterrey, Nuevo León</h2>
-      <p>En Monterrey, el espiritismo ha encontrado seguidores comprometidos con el estudio de las enseñanzas de Allan Kardec. Existen grupos de estudio, centros espiritistas y actividades dedicadas al desarrollo espiritual y moral. Esta página busca ser un punto de encuentro para quienes desean aprender más sobre el espiritismo en Nuevo León, Existe una escuela llamada Escuela de Estudios Psiquicos Fuerza, Luz y Verdad, dicha escuela esta por cumplir 85 años, se encuentra en la Colonia arturo Bee de La Garza, calle Capitan Diego Rodriguez .</p>
-    </section>
+  <div id="escuelas" class="seccion">
+    <h2>Escuelas Espirituales</h2>
+    <ul>
+      <li>Escuela de Estudios Psíquicos Fuerza, Luz y Verdad</li>
+    </ul>
   </div>
 
   <footer>
     <p>© 2025 Estudio Kardecista Monterrey | Contacto: info@espiritismo-monterrey.org</p>
   </footer>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    document.body.style.opacity = 0;
-    setTimeout(() => {
-      document.body.style.transition = "opacity 1.5s";
-      document.body.style.opacity = 1;
-    }, 100);
-  });
-</script>
-
-
-
-<script>
-  function mostrarEscuelas() {
-    const seccion = document.getElementById("contenidoEscuelas");
-    if (seccion.style.display === "none") {
-      seccion.style.display = "block";
-    } else {
-      seccion.style.display = "none";
+  <script>
+    function mostrarSeccion(id) {
+      const secciones = document.querySelectorAll('.seccion');
+      secciones.forEach(sec => sec.classList.remove('activo'));
+      document.getElementById(id).classList.add('activo');
     }
-  }
-</script>
-  
+  </script>
 
-  
 </body>
 </html>
+
 
 
 
