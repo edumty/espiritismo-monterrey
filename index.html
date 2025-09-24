@@ -645,14 +645,11 @@ body.dark-mode #lista-preguntas li {
   <h2>Foro Espiritual</h2>
   <p>Comparte tus dudas espirituales y recibe orientación.</p>
 
-  <form id="formulario-foro">
-    <input type="text" id="nombre" placeholder="Tu nombre (opcional)" style="margin-bottom:10px;"><br>
-    <textarea id="pregunta" placeholder="Escribe tu pregunta aquí..." required></textarea><br>
-    <button type="submit">Enviar pregunta</button>
-  </form>
-
-  <ul id="lista-preguntas"></ul>
-</section>
+  <!-- Campo oculto para activar modo administrador -->
+  <div id="admin-acceso" style="margin-bottom: 20px; display: none;">
+    <input type="password" id="clave-admin" placeholder="Clave de administrador" style="padding: 8px; border-radius: 6px;">
+    <button onclick="activarAdmin()" style="padding: 8px 12px; margin-left: 8px; background-color: #007acc; color: white; border: none; border-radius: 6px;">Activar</button>
+  </div>
 
 
     
@@ -713,6 +710,25 @@ body.dark-mode #lista-preguntas li {
   const app = firebase.initializeApp(firebaseConfig);
   const db = firebase.database();
 
+  let modoAdmin = false;
+
+  function activarAdmin() {
+    const clave = document.getElementById('clave-admin').value.trim();
+    if (clave === 'monterrey2025') {
+      modoAdmin = true;
+      alert('Modo administrador activado');
+      mostrarBotonesEliminar();
+    } else {
+      alert('Clave incorrecta');
+    }
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.ctrlKey && e.key.toLowerCase() === 'm') {
+      document.getElementById('admin-acceso').style.display = 'block';
+    }
+  });
+
   const formulario = document.getElementById('formulario-foro');
   const lista = document.getElementById('lista-preguntas');
 
@@ -735,14 +751,25 @@ body.dark-mode #lista-preguntas li {
   db.ref('preguntas').on('child_added', function(snapshot) {
     const datos = snapshot.val();
     const li = document.createElement('li');
-    li.innerHTML = `<strong>${datos.nombre} pregunta:</strong><br>${datos.pregunta}
-      <button class="boton-eliminar" onclick="eliminarPregunta('${snapshot.key}', this)">✖</button>`;
+    li.innerHTML = `<strong>${datos.nombre} pregunta:</strong><br>${datos.pregunta}`;
+    li.setAttribute('data-key', snapshot.key);
     lista.appendChild(li);
   });
 
-  function eliminarPregunta(key, boton) {
-    db.ref('preguntas/' + key).remove();
-    boton.parentElement.remove();
+  function mostrarBotonesEliminar() {
+    document.querySelectorAll('#lista-preguntas li').forEach(li => {
+      const key = li.getAttribute('data-key');
+      if (!li.querySelector('.boton-eliminar')) {
+        const boton = document.createElement('button');
+        boton.textContent = '✖';
+        boton.className = 'boton-eliminar';
+        boton.onclick = function() {
+          db.ref('preguntas/' + key).remove();
+          li.remove();
+        };
+        li.appendChild(boton);
+      }
+    });
   }
 </script>
 
@@ -750,6 +777,7 @@ body.dark-mode #lista-preguntas li {
   
 </body>
 </html>
+
 
 
 
