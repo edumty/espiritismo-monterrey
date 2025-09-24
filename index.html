@@ -343,6 +343,66 @@ body.dark-mode .cerrar-banner:hover {
   color: #0090cc;
 }
 
+
+
+#foro {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.03);
+}
+
+body.dark-mode #foro {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+#formulario-foro textarea {
+  width: 100%;
+  height: 80px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+#formulario-foro button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #00aaff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#lista-preguntas li {
+  background-color: #f0faff;
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 8px;
+  position: relative;
+}
+
+body.dark-mode #lista-preguntas li {
+  background-color: #2a2a2a;
+}
+
+.boton-eliminar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #007acc;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+
+
+  
   
 </style>
 
@@ -558,7 +618,22 @@ body.dark-mode .cerrar-banner:hover {
   </ul>
 </section>
 
-  
+<section id="foro">
+  <h2>Foro Espiritual</h2>
+  <p>Comparte tus dudas espirituales y recibe orientación.</p>
+
+  <form id="formulario-foro">
+    <input type="text" id="nombre" placeholder="Tu nombre (opcional)" style="margin-bottom:10px;"><br>
+    <textarea id="pregunta" placeholder="Escribe tu pregunta aquí..." required></textarea><br>
+    <button type="submit">Enviar pregunta</button>
+  </form>
+
+  <ul id="lista-preguntas"></ul>
+</section>
+
+
+
+    
 <section id="celebridades">
   <h2>Espiritistas Célebres</h2>
   <p>Estos pensadores y médiums han dejado una huella profunda en el desarrollo del espiritismo a nivel mundial:</p>
@@ -619,11 +694,62 @@ body.dark-mode .cerrar-banner:hover {
   });
 </script>
 
-  
+  <!-- Firebase SDKs para navegador -->
+<script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyAP5oDPamyQoMD--F-dSY7TTT4x-Ys-o_s",
+    authDomain: "foro-espiritual.firebaseapp.com",
+    databaseURL: "https://foro-espiritual-default-rtdb.firebaseio.com",
+    projectId: "foro-espiritual",
+    storageBucket: "foro-espiritual.firebasestorage.app",
+    messagingSenderId: "768751154089",
+    appId: "1:768751154089:web:dbb23e5625496fd9568ab8"
+  };
+
+  const app = firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
+
+  const formulario = document.getElementById('formulario-foro');
+  const lista = document.getElementById('lista-preguntas');
+
+  formulario.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const nombre = document.getElementById('nombre').value.trim() || 'Anónimo';
+    const pregunta = document.getElementById('pregunta').value.trim();
+    if (pregunta === '') return;
+
+    const nuevaPregunta = db.ref('preguntas').push();
+    nuevaPregunta.set({
+      nombre: nombre,
+      pregunta: pregunta,
+      fecha: new Date().toISOString()
+    });
+
+    formulario.reset();
+  });
+
+  db.ref('preguntas').on('child_added', function(snapshot) {
+    const datos = snapshot.val();
+    const li = document.createElement('li');
+    li.innerHTML = `<strong>${datos.nombre} pregunta:</strong><br>${datos.pregunta}
+      <button class="boton-eliminar" onclick="eliminarPregunta('${snapshot.key}', this)">✖</button>`;
+    lista.appendChild(li);
+  });
+
+  function eliminarPregunta(key, boton) {
+    db.ref('preguntas/' + key).remove();
+    boton.parentElement.remove();
+  }
+</script>
+
 
   
 </body>
 </html>
+
 
 
 
