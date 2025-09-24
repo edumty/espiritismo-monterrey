@@ -300,6 +300,48 @@ body.dark-mode table tbody tr:hover {
   background-color: #2a2a2a;
 }
 
+.banner-evento {
+  background-color: #cceeff;
+  color: #007acc;
+  padding: 12px 20px;
+  margin: 20px auto;
+  border-radius: 8px;
+  max-width: 900px;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  position: relative;
+  text-align: center;
+}
+
+.cerrar-banner {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  color: #007acc;
+  cursor: pointer;
+}
+
+.cerrar-banner:hover {
+  color: #005f99;
+}
+
+/* Modo oscuro */
+body.dark-mode .banner-evento {
+  background-color: #1e1e1e;
+  color: #00bcd4;
+  box-shadow: 0 2px 8px rgba(255,255,255,0.05);
+}
+
+body.dark-mode .cerrar-banner {
+  color: #00bcd4;
+}
+
+body.dark-mode .cerrar-banner:hover {
+  color: #0090cc;
+}
 
   
 </style>
@@ -334,6 +376,10 @@ body.dark-mode table tbody tr:hover {
   </button>
 </div>
 
+<div class="banner-evento" id="banner-evento">
+  📅 <strong>4 de octubre de 2025:</strong> Aniversario de la Escuela Fuerza, Luz y Verdad
+  <button onclick="document.getElementById('banner-evento').style.display='none'" class="cerrar-banner">✖</button>
+</div>
 
 
   
@@ -559,6 +605,7 @@ body.dark-mode table tbody tr:hover {
   
 </body>
 </html>
+
 
 
 
