@@ -390,6 +390,53 @@ body.dark-mode #lista-preguntas li {
 
 
 
+#galeria {
+  max-width: 960px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.04);
+}
+
+body.dark-mode #galeria {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+#galeria h2 {
+  font-size: 1.7em;
+  margin-bottom: 15px;
+  color: #00aaff;
+}
+
+body.dark-mode #galeria h2 {
+  color: #00bcd4;
+}
+
+.galeria img {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.galeria img:hover {
+  transform: scale(1.03);
+}
+
+@media screen and (max-width: 600px) {
+  .galeria {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .galeria img {
+    max-width: 100%;
+  }
+}
 
 
 
