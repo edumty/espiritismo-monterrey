@@ -381,7 +381,7 @@ body.dark-mode #lista-preguntas li {
 }
 
 .galeria img {
-  width: 220px; /* Tamaño fijo más compacto */
+  width: 220px;
   height: auto;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
