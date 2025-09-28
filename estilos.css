@@ -370,6 +370,106 @@ body.dark-mode #lista-preguntas li {
   background: none;
   border: none
 
+/* === Audios Espirituales === */
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: var(--fondo);
+  color: var(--texto);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header {
+  text-align: center;
+  padding: 2em 1em;
+  background-color: var(--encabezado);
+  color: var(--texto-encabezado);
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0 1em;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--texto);
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--resaltado);
+}
+
+main {
+  padding: 2em 1em;
+  max-width: 800px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 0.2em;
+}
+
+h2, h3, h4 {
+  margin-top: 2em;
+  color: var(--resaltado);
+}
+
+.audio-card {
+  background-color: var(--fondo-claro);
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease;
+}
+
+.audio-card:hover {
+  background-color: var(--fondo-resaltado);
+}
+
+footer {
+  text-align: center;
+  padding: 2em 1em;
+  font-size: 0.9em;
+  background-color: var(--encabezado);
+  color: var(--texto-encabezado);
+}
+
+/* === Variables para modo claro/oscuro === */
+
+:root {
+  --fondo: #ffffff;
+  --texto: #222222;
+  --encabezado: #f0f0f0;
+  --texto-encabezado: #333333;
+  --resaltado: #0077cc;
+  --fondo-claro: #f9f9f9;
+  --fondo-resaltado: #e0f0ff;
+}
+
+body.dark-mode {
+  --fondo: #121212;
+  --texto: #eeeeee;
+  --encabezado: #1f1f1f;
+  --texto-encabezado: #dddddd;
+  --resaltado: #66ccff;
+  --fondo-claro: #1a1a1a;
+  --fondo-resaltado: #2a2a2a;
+}
 
 
 
