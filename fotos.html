@@ -10,49 +10,50 @@
   <header>
     <h1>Galería de Fotos Espirituales</h1>
     <p>Explora momentos especiales vividos en las escuelas espirituales</p>
-    <div style="margin-top: 15px;">
-      <button id="toggle-dark">🌙 Activar modo oscuro</button>
-    </div>
+    <nav style="margin-top: 20px;">
+      <a href="index.html">Inicio</a>
+      <a href="#" onclick="volverEscuelas()">Escuelas</a>
+      <a href="#" onclick="volverAnios()">Años</a>
+      <a href="#" onclick="volverMeses()">Meses</a>
+      <button id="toggle-dark" style="margin-left: 20px;">🌙 Activar modo oscuro</button>
+    </nav>
   </header>
 
   <main style="max-width: 960px; margin: auto; padding: 20px;">
     <!-- Etapa 1: Selección de escuela -->
     <section id="seleccion-escuela">
       <h2>Selecciona una escuela espiritual</h2>
-      <ul>
-        <li><button onclick="mostrarAnios('fuerza-luz')">Escuela de Estudios Psíquicos Fuerza, Luz y Verdad</button></li>
-        <!-- Puedes agregar más escuelas aquí -->
-      </ul>
+      <nav>
+        <a href="#" onclick="mostrarAnios('fuerza-luz')">Escuela de Estudios Psíquicos Fuerza, Luz y Verdad</a>
+      </nav>
     </section>
 
     <!-- Etapa 2: Selección de año -->
     <section id="seleccion-anio" style="display:none;">
       <h2>Selecciona un año</h2>
-      <ul>
-        <li><button onclick="mostrarMeses('2024')">2024</button></li>
-        <li><button onclick="mostrarMeses('2025')">2025</button></li>
-      </ul>
+      <nav>
+        <a href="#" onclick="mostrarMeses('2024')">2024</a>
+        <a href="#" onclick="mostrarMeses('2025')">2025</a>
+      </nav>
     </section>
 
     <!-- Etapa 3: Selección de mes -->
     <section id="seleccion-mes" style="display:none;">
       <h2>Selecciona un mes</h2>
-      <ul>
-        <li><button onclick="mostrarGaleria('septiembre')">Septiembre</button></li>
-        <li><button onclick="mostrarGaleria('octubre')">Octubre</button></li>
-      </ul>
+      <nav>
+        <a href="#" onclick="mostrarGaleria('septiembre')">Septiembre</a>
+        <a href="#" onclick="mostrarGaleria('octubre')">Octubre</a>
+      </nav>
     </section>
 
     <!-- Etapa 4: Galería de fotos -->
-   <section id="galeria-fotos" style="display:none;">
-  <h2 id="titulo-galeria">Fotos del mes</h2>
-  <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px;">
-    <img src="https://raw.githubusercontent.com/edumty/espiritismo-monterrey/main/aniversario-fuerza-luz-yverdad.jpeg" alt="Aniversario Fuerza Luz y Verdad" loading="lazy" style="width: 220px; height: auto; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); object-fit: cover;">
-    
-    <img src="https://raw.githubusercontent.com/edumty/espiritismo-monterrey/main/dia-de-ramos-fuerza-luz-yverdad.jpeg" alt="Día de Ramos Fuerza Luz y Verdad" loading="lazy" style="width: 220px; height: auto; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); object-fit: cover;">
-  </div>
-</section>
-
+    <section id="galeria-fotos" style="display:none;">
+      <h2 id="titulo-galeria">Fotos del mes</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px;">
+        <img src="https://raw.githubusercontent.com/edumty/espiritismo-monterrey/main/aniversario-fuerza-luz-yverdad.jpeg" alt="Aniversario Fuerza Luz y Verdad" loading="lazy" style="width: 220px; height: auto; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); object-fit: cover;">
+        <img src="https://raw.githubusercontent.com/edumty/espiritismo-monterrey/main/dia-de-ramos-fuerza-luz-yverdad.jpeg" alt="Día de Ramos Fuerza Luz y Verdad" loading="lazy" style="width: 220px; height: auto; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); object-fit: cover;">
+      </div>
+    </section>
   </main>
 
   <footer>
@@ -85,6 +86,30 @@
       document.getElementById('galeria-fotos').style.display = 'block';
       document.getElementById('titulo-galeria').textContent = `Fotos del mes de ${mes.charAt(0).toUpperCase() + mes.slice(1)}`;
     }
+
+    // Volver atrás
+    function volverEscuelas() {
+      ocultarTodo();
+      document.getElementById('seleccion-escuela').style.display = 'block';
+    }
+
+    function volverAnios() {
+      ocultarTodo();
+      document.getElementById('seleccion-anio').style.display = 'block';
+    }
+
+    function volverMeses() {
+      ocultarTodo();
+      document.getElementById('seleccion-mes').style.display = 'block';
+    }
+
+    function ocultarTodo() {
+      document.getElementById('seleccion-escuela').style.display = 'none';
+      document.getElementById('seleccion-anio').style.display = 'none';
+      document.getElementById('seleccion-mes').style.display = 'none';
+      document.getElementById('galeria-fotos').style.display = 'none';
+    }
   </script>
 </body>
 </html>
+
