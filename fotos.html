@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Fotos Espirituales | Escuela Fuerza, Luz y Verdad</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header>
+    <h1>Galería de Fotos Espirituales</h1>
+    <p>Explora momentos especiales vividos en las escuelas espirituales</p>
+    <div style="margin-top: 15px;">
+      <button id="toggle-dark">🌙 Activar modo oscuro</button>
+    </div>
+  </header>
+
+  <main style="max-width: 960px; margin: auto; padding: 20px;">
+    <!-- Etapa 1: Selección de escuela -->
+    <section id="seleccion-escuela">
+      <h2>Selecciona una escuela espiritual</h2>
+      <ul>
+        <li><button onclick="mostrarAnios('fuerza-luz')">Escuela de Estudios Psíquicos Fuerza, Luz y Verdad</button></li>
+        <!-- Puedes agregar más escuelas aquí -->
+      </ul>
+    </section>
+
+    <!-- Etapa 2: Selección de año -->
+    <section id="seleccion-anio" style="display:none;">
+      <h2>Selecciona un año</h2>
+      <ul>
+        <li><button onclick="mostrarMeses('2024')">2024</button></li>
+        <li><button onclick="mostrarMeses('2025')">2025</button></li>
+      </ul>
+    </section>
+
+    <!-- Etapa 3: Selección de mes -->
+    <section id="seleccion-mes" style="display:none;">
+      <h2>Selecciona un mes</h2>
+      <ul>
+        <li><button onclick="mostrarGaleria('septiembre')">Septiembre</button></li>
+        <li><button onclick="mostrarGaleria('octubre')">Octubre</button></li>
+      </ul>
+    </section>
+
+    <!-- Etapa 4: Galería de fotos -->
+   <section id="galeria-fotos" style="display:none;">
+  <h2 id="titulo-galeria">Fotos del mes</h2>
+  <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px;">
+    <img src="https://raw.githubusercontent.com/edumty/espiritismo-monterrey/main/aniversario-fuerza-luz-yverdad.jpeg" alt="Aniversario Fuerza Luz y Verdad" loading="lazy" style="width: 220px; height: auto; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); object-fit: cover;">
+    
+    <img src="https://raw.githubusercontent.com/edumty/espiritismo-monterrey/main/dia-de-ramos-fuerza-luz-yverdad.jpeg" alt="Día de Ramos Fuerza Luz y Verdad" loading="lazy" style="width: 220px; height: auto; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); object-fit: cover;">
+  </div>
+</section>
+
+  </main>
+
+  <footer>
+    <p>© 2025 Estudio Kardecista Monterrey</p>
+  </footer>
+
+  <script>
+    // Modo oscuro
+    const toggleButton = document.getElementById('toggle-dark');
+    toggleButton.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      toggleButton.textContent = document.body.classList.contains('dark-mode')
+        ? '☀️ Desactivar modo oscuro'
+        : '🌙 Activar modo oscuro';
+    });
+
+    // Navegación dinámica
+    function mostrarAnios(escuela) {
+      document.getElementById('seleccion-escuela').style.display = 'none';
+      document.getElementById('seleccion-anio').style.display = 'block';
+    }
+
+    function mostrarMeses(anio) {
+      document.getElementById('seleccion-anio').style.display = 'none';
+      document.getElementById('seleccion-mes').style.display = 'block';
+    }
+
+    function mostrarGaleria(mes) {
+      document.getElementById('seleccion-mes').style.display = 'none';
+      document.getElementById('galeria-fotos').style.display = 'block';
+      document.getElementById('titulo-galeria').textContent = `Fotos del mes de ${mes.charAt(0).toUpperCase() + mes.slice(1)}`;
+    }
+  </script>
+</body>
+</html>
