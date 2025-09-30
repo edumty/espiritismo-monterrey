@@ -49,10 +49,7 @@
     <!-- Etapa 4: Galería de fotos -->
     <section id="galeria-fotos" style="display:none;">
       <h2 id="titulo-galeria">Fotos del mes</h2>
-      <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px;">
-        <img src="https://raw.githubusercontent.com/edumty/espiritismo-monterrey/main/aniversario-fuerza-luz-yverdad.jpeg" alt="Aniversario Fuerza Luz y Verdad" loading="lazy" style="width: 220px; height: auto; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); object-fit: cover;">
-        <img src="https://raw.githubusercontent.com/edumty/espiritismo-monterrey/main/dia-de-ramos-fuerza-luz-yverdad.jpeg" alt="Día de Ramos Fuerza Luz y Verdad" loading="lazy" style="width: 220px; height: auto; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); object-fit: cover;">
-      </div>
+      <div id="contenedor-fotos" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px;"></div>
     </section>
   </main>
 
@@ -70,21 +67,46 @@
         : '🌙 Activar modo oscuro';
     });
 
+    // Variables globales
+    let anioSeleccionado = "";
+
     // Navegación dinámica
     function mostrarAnios(escuela) {
-      document.getElementById('seleccion-escuela').style.display = 'none';
+      ocultarTodo();
       document.getElementById('seleccion-anio').style.display = 'block';
     }
 
     function mostrarMeses(anio) {
-      document.getElementById('seleccion-anio').style.display = 'none';
+      anioSeleccionado = anio;
+      ocultarTodo();
       document.getElementById('seleccion-mes').style.display = 'block';
     }
 
     function mostrarGaleria(mes) {
-      document.getElementById('seleccion-mes').style.display = 'none';
+      ocultarTodo();
       document.getElementById('galeria-fotos').style.display = 'block';
-      document.getElementById('titulo-galeria').textContent = `Fotos del mes de ${mes.charAt(0).toUpperCase() + mes.slice(1)}`;
+      document.getElementById('titulo-galeria').textContent = `Fotos del mes de ${mes.charAt(0).toUpperCase() + mes.slice(1)} ${anioSeleccionado}`;
+
+      const galeria = document.getElementById('contenedor-fotos');
+      galeria.innerHTML = ""; // Limpiar fotos anteriores
+
+      // SEPTIEMBRE 2024
+      if (anioSeleccionado === "2024" && mes === "septiembre") {
+        galeria.innerHTML = `
+          <img src="https://raw.githubusercontent.com/edumty/espiritismo-monterrey/main/dia-de-ramos-fuerza-luz-yverdad.jpeg" alt="Septiembre 2024 - Foto 1" loading="lazy" style="width: 220px; height: auto; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); object-fit: cover;">
+          <!-- Si quieres agregar más fotos de septiembre 2024, colócalas aquí abajo -->
+        `;
+      }
+
+      // SEPTIEMBRE 2025
+      else if (anioSeleccionado === "2025" && mes === "septiembre") {
+        galeria.innerHTML = `
+          <img src="https://raw.githubusercontent.com/edumty/espiritismo-monterrey/main/aniversario-fuerza-luz-yverdad.jpeg" alt="Septiembre 2025 - Foto 1" loading="lazy" style="width: 220px; height: auto; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); object-fit: cover;">
+          <!-- Si quieres agregar más fotos de septiembre 2025, colócalas aquí abajo -->
+        `;
+      }
+
+      // Puedes seguir agregando más combinaciones de año + mes aquí
     }
 
     // Volver atrás
@@ -112,4 +134,5 @@
   </script>
 </body>
 </html>
+
 
